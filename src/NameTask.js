@@ -1,10 +1,24 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
 
 
 
 
 function NameTask(props) {
+
+    const [desactivated, setDesactivated] = useState(true)
+
+    const desactive = () => {
+        if(index === 0) return
+        const updateUp = task.map((el, i) => {
+            if(index === i) return task[index - 1]
+            if(index -1 === i) return task[index]
+            return el;
+        })
+        setTask(updateUp)
+    }
+
+
 
 const left = (<svg width="1em" height="1em" viewBox="0 0 16 16" className="bi bi-arrow-left-short" fill="currentColor"
                    xmlns="http://www.w3.org/2000/svg">
@@ -24,7 +38,7 @@ const left = (<svg width="1em" height="1em" viewBox="0 0 16 16" className="bi bi
   return (
     <div className="nameTask">
       {props.tasks.name}
-      <button onClick={() => props.changeStatus({ id: props.tasks.id, direction: 'left'})} disabled={props.index}>
+      <button onClick={() => props.changeStatus({ id: props.tasks.id, direction: 'left'})} disabled={desactivated}>
           {left}
       </button>
         <span onClick={() => props.changeStatus({ id: props.tasks.id, direction: 'right'})}>

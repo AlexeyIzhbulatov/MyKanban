@@ -16,10 +16,9 @@ const initialTask = [
 function App() {
   const [task,setTask] = useState(initialTask)
 
-    const changeStatus = ({id, direction, index}) => {
+    const changeStatus = ({id, direction}) => {
       console.log(id, direction)
         const statuses = ['todo', 'progress', 'review', 'done']
-        if(index === 0 || index < task.length)
         const changeStatuses = task.map(el => {
             if(el.id === id) {
                if(direction === 'left') {
