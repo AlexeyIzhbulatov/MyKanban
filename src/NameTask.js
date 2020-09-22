@@ -24,9 +24,9 @@ const left = (<svg width="1em" height="1em" viewBox="0 0 16 16" className="bi bi
   return (
     <div className="nameTask">
       {props.tasks.name}
-      <span onClick={() => props.changeStatus({ id: props.tasks.id, direction: 'left'})}>
+      <button onClick={() => props.changeStatus({ id: props.tasks.id, direction: 'left'})} disabled={props.index}>
           {left}
-      </span>
+      </button>
         <span onClick={() => props.changeStatus({ id: props.tasks.id, direction: 'right'})}>
           {right}
       </span>
