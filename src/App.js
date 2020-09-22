@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import './App.css';
 import ColumnTask from "./ColumnTask";
 import { v4 as uuidv4 } from 'uuid';
+import CreateTaskForm from "./CreateTaskForm";
 
 
 const initialTask = [
@@ -33,12 +34,20 @@ function App() {
         setTask(changeStatuses)
     }
 
+    const onCreateTask = (onCreateTask) => {
+      console.log(onCreateTask)
+        const updateCreateTaskForm = [...task];
+      updateCreateTaskForm.push({id: uuidv4(), name: onCreateTask, priority: 1, status: 'todo'})
+        setTask(updateCreateTaskForm)
+    }
+
 
 
   return (
     <div className="App">
         <div className="container">
             Kanban
+            <CreateTaskForm onCreateTask={onCreateTask}/>
             <div className="row">
                 <div className="col-sm">
                     To do
