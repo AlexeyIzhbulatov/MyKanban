@@ -18,6 +18,7 @@ function CreateTaskForm(props) {
     <div className="createTaskForm">
       <input type="text" value={createTaskForm} onChange={e => setCreateTaskForm(e.target.value)}/>
       <button onClick={addTask}>Add Task</button>
+
     </div>
   );
 }

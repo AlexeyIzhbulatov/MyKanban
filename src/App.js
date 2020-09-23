@@ -35,10 +35,13 @@ function App() {
     }
 
     const onCreateTask = (onCreateTask) => {
-      console.log(onCreateTask)
         const updateCreateTaskForm = [...task];
-      updateCreateTaskForm.push({id: uuidv4(), name: onCreateTask, priority: 1, status: 'todo'})
+      updateCreateTaskForm.push({id: uuidv4(), name: onCreateTask, priority: uuidv4(), status: 'todo'})
         setTask(updateCreateTaskForm)
+    }
+
+    const upTaskArrow = (index) => {
+     console.log(index)
     }
 
 
@@ -51,19 +54,19 @@ function App() {
             <div className="row">
                 <div className="col-sm">
                     To do
-                    <ColumnTask tasks={task} status='todo' changeStatus={changeStatus}/>
+                    <ColumnTask tasks={task} status='todo' changeStatus={changeStatus} upTaskArrow={upTaskArrow}/>
                 </div>
                 <div className="col-sm">
                     Progress
-                    <ColumnTask tasks={task} status='progress' changeStatus={changeStatus}/>
+                    <ColumnTask tasks={task} status='progress' changeStatus={changeStatus}  upTaskArrow={upTaskArrow}/>
                 </div>
                 <div className="col-sm">
                     Review
-                    <ColumnTask tasks={task} status='review' changeStatus={changeStatus}/>
+                    <ColumnTask tasks={task} status='review' changeStatus={changeStatus}  upTaskArrow={upTaskArrow}/>
                 </div>
                 <div className="col-sm">
                     Done
-                    <ColumnTask tasks={task} status='done' changeStatus={changeStatus}/>
+                    <ColumnTask tasks={task} status='done' changeStatus={changeStatus}  upTaskArrow={upTaskArrow}/>
                 </div>
             </div>
         </div>
@@ -72,3 +75,5 @@ function App() {
 }
 
 export default App;
+
+
