@@ -28,6 +28,9 @@ function App() {
                 if(direction === 'right') {
                     el.status = statuses[statuses.indexOf(el.status) + 1]
                 }
+                if(direction === 'up') {
+                    el.priority = changeLevel[changeLevel.indexOf(el.priority) + 1]
+                }
                return el;
             } else return el;
         })
@@ -36,10 +39,11 @@ function App() {
 
     const onCreateTask = (onCreateTask) => {
         const updateCreateTaskForm = [...task];
-      updateCreateTaskForm.push({id: uuidv4(), name: onCreateTask, priority: 0, status: 'todo'})
+      updateCreateTaskForm.push({id: uuidv4(), name: onCreateTask, status: 'todo'})
         setTask(updateCreateTaskForm)
     }
 
+    const changeLevel = [0, 1, 2];
 
 
 

@@ -15,7 +15,7 @@ function ColumnTask(props) {
   return (
     <div className="columnTask">
       {
-        props.tasks.filter(el => el.status === props.status).map((el,index) => <NameTask key={el.id} tasks={el} changeStatus={props.changeStatus}el={el}/>)
+        props.tasks.filter(el => el.status === props.status).map((el,index) => <NameTask key={el.id} tasks={el} changeStatus={props.changeStatus} el={el} index={index}/>)
       }
     </div>
   );
