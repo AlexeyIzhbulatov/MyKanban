@@ -5,10 +5,10 @@ import Board from "./Board";
 import CreateFormTask from "./CreateFormTask";
 
 const initialTasks = [
-    {id: uuidv4(), title: 'Task1', priority: 0, status: 'todo'},
-    {id: uuidv4(), title: 'Task2', priority: 1, status: 'progress'},
-    {id: uuidv4(), title: 'Task3', priority: 2, status: 'review'},
-    {id: uuidv4(), title: 'Task4', priority: 2, status: 'done'},
+    {id: uuidv4(), titleTask: 'Task1', priority: 0, status: 'todo'},
+    {id: uuidv4(), titleTask: 'Task2', priority: 1, status: 'progress'},
+    {id: uuidv4(), titleTask: 'Task3', priority: 2, status: 'review'},
+    {id: uuidv4(), titleTask: 'Task4', priority: 2, status: 'done'},
 ]
 
 
@@ -29,6 +29,9 @@ function App() {
                 if(direction === 'right'){
                     el.status = statuses[statuses.indexOf(el.status) + 1];
                 }
+                if(direction === 'up'){
+                    return task[direction - 1]
+                }
                 return el;
             } else return el;
         });
@@ -36,9 +39,10 @@ function App() {
     }
 
     const onCreateTaskForm = (tasks) => {
-        const updateOnCreateTaskForm = [...task]
-        updateOnCreateTaskForm.push({id: uuidv4(), title: tasks, status: 'todo'})
-        setTask(task)
+        console.log(tasks)
+        const updateInCreateTaskForn = [...task]
+        updateInCreateTaskForn.push({id:uuidv4(), titleTask: tasks, priority: 0, status: 'todo'})
+        setTask(updateInCreateTaskForn)
     }
 
     return (

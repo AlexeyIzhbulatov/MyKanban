@@ -9,7 +9,7 @@ function Board(props) {
     return (
         <div className="board">
             {
-              props.task.filter(el => el.status === props.status).map((el,index) => <Tasks key={el.id} task={el} updateArrowStatus={props.updateArrowStatus}/>)
+              props.task.filter(el => el.status === props.status).map((el,index) => <Tasks key={el.id} task={el} updateArrowStatus={props.updateArrowStatus} onCreateTaskForm={props.onCreateTaskForm}/>)
             }
         </div>
     );
